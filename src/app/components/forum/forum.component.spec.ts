@@ -1,23 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainComponent } from './main.component';
+import { ForumComponent } from './forum.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
 
-describe('MainComponent', () => {
-  let component: MainComponent;
-  let fixture: ComponentFixture<MainComponent>;
+describe('ForumComponent', () => {
+  let component: ForumComponent;
+  let fixture: ComponentFixture<ForumComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainComponent, NavbarComponent],
-      imports: [ TranslateModule.forRoot() ]
+      declarations: [ ForumComponent, NavbarComponent],
+      imports: [
+      TranslateModule.forRoot()]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainComponent);
+    fixture = TestBed.createComponent(ForumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

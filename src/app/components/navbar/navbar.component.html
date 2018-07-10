@@ -1,0 +1,38 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand"> {{ 'PAGES.MAIN.TITLE' | translate }}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" [ngClass]="{'active': current === 'main'}">
+          <a class="nav-link" routerLink="/main">{{ 'PAGES.MAIN.HOME' | translate }}
+            <!-- <span class="sr-only">(current)</span> -->
+          </a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': current === 'wallet'}">
+          <a class="nav-link" routerLink="/wallet">{{ 'PAGES.MAIN.WALLET' | translate }}</a>
+        </li>
+
+        <li class="nav-item" [ngClass]="{'active': current === 'exchange'}">
+          <a class="nav-link" routerLink="/exchange">{{ 'PAGES.MAIN.EXCHANGE' | translate }}</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': current === 'forum'}">
+          <a class="nav-link" routerLink="/forum">{{ 'PAGES.MAIN.FORUM' | translate }}</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': current === 'feedback'}">
+          <a class="nav-link" routerLink="/feedback">{{ 'PAGES.MAIN.FEEDBACK' | translate }}</a>
+        </li>
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="{{ 'PAGES.MAIN.SEARCH' | translate }}" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{ 'PAGES.MAIN.SEARCH' | translate }}</button>
+      </form>
+    </div>
+  </nav>
+

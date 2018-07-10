@@ -20,6 +20,11 @@ import { WebviewDirective } from './directives/webview.directive';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { MainComponent } from './components/main/main.component';
+import { WalletComponent } from './components/wallet/wallet.component';
+import { ExchangeComponent } from './components/exchange/exchange.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 import {VigMaterialModule} from './materail.module';
 
@@ -33,6 +38,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HomeComponent,
     MainComponent,
+    WalletComponent,
+    ExchangeComponent,
+    ForumComponent,
+    FeedbackComponent,
+    NavbarComponent,
     WebviewDirective
   ],
   imports: [
