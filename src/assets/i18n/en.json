@@ -1,7 +1,10 @@
 {
   "PAGES": {
-      "HOME": {
-          "TITLE": "App works !"
-      }
+    "HOME": {
+      "TITLE": "App works !"
+    },
+    "MAIN": {
+      "TITLE": "VIG COIN 钱包"
+    }
   }
 }

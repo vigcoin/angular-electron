@@ -1,11 +1,11 @@
 {
-  "name": "angular-electron",
-  "version": "4.0.0",
-  "description": "Angular 6 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "vig-coin-wallet",
+  "version": "0.1.0",
+  "description": "Vig coin wallet",
+  "homepage": "https://github.com/vigcoin/electron-wallet",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Calidion",
+    "email": "calidion@gmail.com"
   },
   "keywords": [
     "angular",
@@ -34,7 +34,11 @@
     "e2e": "ng e2e"
   },
   "dependencies": {
-    "@angular/material": "^6.2.1"
+    "@angular/animations": "^6.0.7",
+    "@angular/cdk": "^6.3.0",
+    "@angular/material": "^6.3.0",
+    "@vigcoin/crypto": "^0.2.0",
+    "bootstrap": "^4.1.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.6.3",

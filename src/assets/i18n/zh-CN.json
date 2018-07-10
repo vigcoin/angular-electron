@@ -1,7 +1,18 @@
 {
   "PAGES": {
-      "HOME": {
-          "TITLE": "VIG COIN 钱包，交易客户端!"
-      }
+    "HOME": {
+      "TITLE": "VIG COIN 钱包，交易客户端!",
+      "ENTER": "进入",
+      "WALLET": "钱包"
+    },
+    "MAIN": {
+      "TITLE": "VIG COIN 钱包",
+      "HOME": "首页",
+      "WALLET": "钱包",
+      "EXCHANGE": "交易所",
+      "FORUM": "论坛",
+      "FEEDBACK": "反馈",
+      "SEARCH": "搜索"
+    }
   }
 }

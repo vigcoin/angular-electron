@@ -2,7 +2,11 @@ import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
-let win, serve;
+let win, serve, splash;
+
+// const favicon = 'src/favicon.256x256.png';
+const faviconFile = path.join(__dirname, 'src/favicon.256x256.png');
+
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
@@ -17,7 +21,7 @@ function createWindow() {
     y: 0,
     width: size.width,
     height: size.height,
-    icon: path.join(__dirname, 'src/favicon.256x256.png')
+    icon: faviconFile
   });
 
   if (serve) {
@@ -33,6 +37,16 @@ function createWindow() {
     }));
   }
 
+  win.webContents.on('did-finish-load', () => {
+    win.show();
+
+    if (splash) {
+      const loadingScreenBounds = splash.getBounds();
+      win.setBounds(loadingScreenBounds);
+      splash.close();
+    }
+  });
+
   win.webContents.openDevTools();
 
   // Emitted when the window is closed.
@@ -44,12 +58,29 @@ function createWindow() {
   });
 }
 
+function createSplash() {
+  splash = new BrowserWindow({
+    width: 400,
+    height: 120,
+    icon: faviconFile,
+    frame: false
+  });
+  splash.loadURL('file://' + __dirname + '/dist/splash.html');
+  splash.on('closed', () => splash = null);
+  splash.webContents.on('did-finish-load', () => {
+    splash.show();
+  });
+}
+
 try {
 
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
-  app.on('ready', createWindow);
+  app.on('ready', () => {
+    createSplash();
+    createWindow();
+  });
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {

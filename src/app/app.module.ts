@@ -19,6 +19,9 @@ import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { MainComponent } from './components/main/main.component';
+
+import {VigMaterialModule} from './materail.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,6 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     HomeComponent,
+    MainComponent,
     WebviewDirective
   ],
   imports: [
@@ -36,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    VigMaterialModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
