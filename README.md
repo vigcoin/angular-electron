@@ -93,8 +93,8 @@ Please have a look at [Stack Overflow Post workaround](https://stackoverflow.com
 - Angular 5 & Electron 1 : Branch [angular5](https://github.com/maximegris/angular-electron/tree/angular5)
 - Angular 6 & Electron 2 : (master)
 
-[build-badge]: https://travis-ci.org/maximegris/angular-electron.svg?branch=master
-[build]: https://travis-ci.org/maximegris/angular-electron.svg?branch=master
+[build-badge]: https://travis-ci.com/vigcoin/electron-wallet.svg?branch=master
+[build]: https://travis-ci.com/vigcoin/electron-wallet
 [dependencyci-badge]: https://dependencyci.com/github/maximegris/angular-electron/badge
 [dependencyci]: https://dependencyci.com/github/maximegris/angular-electron
 [license-badge]: https://img.shields.io/badge/license-Apache2-blue.svg?style=flat
