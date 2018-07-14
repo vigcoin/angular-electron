@@ -3,8 +3,6 @@ dist: xenial
 node_js:
   - 10
   - 8
-  - 6
-  - 4
 sudo: required
 addons:
     chrome: stable
