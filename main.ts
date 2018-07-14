@@ -2,6 +2,8 @@ import { app, BrowserWindow, screen } from 'electron';
 import * as path from 'path';
 import * as url from 'url';
 
+import { initIPC } from './electron/ipc';
+
 let win, serve, splash;
 
 // const favicon = 'src/favicon.256x256.png';
@@ -98,6 +100,8 @@ try {
       createWindow();
     }
   });
+
+  initIPC();
 
 } catch (e) {
   // Catch Error

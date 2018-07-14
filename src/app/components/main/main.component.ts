@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { read } from 'fs';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -15,20 +16,30 @@ export class MainComponent implements OnInit {
   }
 
   fileChangeEvent(fileInput: any) {
+
     if (fileInput.target.files && fileInput.target.files[0]) {
       const reader = new FileReader();
+      const file = fileInput.target.files[0];
+      console.log(file.path);
 
-      // reader.onload = function (e : any) {
-      //     $('#preview').attr('src', e.target.result);
-      // }
+      try {
 
-      console.log(fileInput.target.files[0]);
-      console.log(URL.createObjectURL(fileInput.target.files[0]));
+        const electron = window.require('electron');
 
-      reader.readAsDataURL(fileInput.target.files[0]);
-
-      console.log(reader);
+        const { dialog, ipcRenderer } = electron;
+        ipcRenderer.send('open-wallet', file.path, '');
+        ipcRenderer.on('open-wallet', (event, arg) => {
+          console.log(arg); // prints "pong"
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    }
   }
+
+  fileOpenDialog() {
+    // dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] });
+    // return false;
   }
 
 }

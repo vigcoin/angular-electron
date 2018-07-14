@@ -27,6 +27,7 @@
     "electron:tsc": "tsc main.ts",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:tsc && electron . --serve",
     "electron:local": "npm run build:prod && electron .",
+    "native": "npm run build:prod && electron .",
     "electron:linux": "npm run build:prod && npx electron-builder build --linux",
     "electron:windows": "npm run build:prod && npx electron-builder build --windows",
     "electron:mac": "npm run build:prod && npx electron-builder build --mac",
@@ -37,7 +38,7 @@
     "@angular/animations": "^6.0.7",
     "@angular/cdk": "^6.3.0",
     "@angular/material": "^6.3.0",
-    "@vigcoin/crypto": "^0.2.0",
+    "@vigcoin/crypto": "^0.3.0",
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3"
@@ -82,5 +83,10 @@
     "wait-on": "2.1.0",
     "webdriver-manager": "12.0.6",
     "zone.js": "0.8.26"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

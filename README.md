@@ -1,4 +1,5 @@
-[![Angular Logo](./logo-angular.jpg)](https://angular.io/) [![Electron Logo](./logo-electron.jpg)](https://electron.atom.io/)
+[![VIG COIN Logo](./logo.jpg)](https://vigcoin.org/) 
+
 
 [![Travis Build Status][build-badge]][build]
 [![Dependencies Status][dependencyci-badge]][dependencyci]
