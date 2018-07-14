@@ -1,4 +1,5 @@
 language: node_js
+dist: xenial
 node_js:
   - 10
   - 8
@@ -11,6 +12,7 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
 install:
+  - apt-get install libboost-all-dev
   - npm set progress=false
   - npm install
 script:
