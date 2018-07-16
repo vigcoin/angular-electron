@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ExchangeComponent } from './exchange.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('ExchangeComponent', () => {
   let component: ExchangeComponent;
@@ -10,11 +11,12 @@ describe('ExchangeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExchangeComponent, NavbarComponent ],
+      declarations: [ExchangeComponent, NavbarComponent],
       imports: [
+        FontAwesomeModule,
         TranslateModule.forRoot()]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

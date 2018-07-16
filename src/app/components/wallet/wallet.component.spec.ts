@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { WalletComponent } from './wallet.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('WalletComponent', () => {
   let component: WalletComponent;
@@ -12,6 +13,7 @@ describe('WalletComponent', () => {
     TestBed.configureTestingModule({
       declarations: [WalletComponent, NavbarComponent],
       imports: [
+        FontAwesomeModule,
       TranslateModule.forRoot()]
     })
       .compileComponents();

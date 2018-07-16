@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ForumComponent } from './forum.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('ForumComponent', () => {
   let component: ForumComponent;
@@ -10,11 +11,12 @@ describe('ForumComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ForumComponent, NavbarComponent],
+      declarations: [ForumComponent, NavbarComponent],
       imports: [
-      TranslateModule.forRoot()]
+        FontAwesomeModule,
+        TranslateModule.forRoot()]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

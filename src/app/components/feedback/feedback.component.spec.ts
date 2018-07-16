@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FeedbackComponent } from './feedback.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('FeedbackComponent', () => {
   let component: FeedbackComponent;
@@ -12,6 +13,8 @@ describe('FeedbackComponent', () => {
     TestBed.configureTestingModule({
       declarations: [FeedbackComponent, NavbarComponent],
       imports: [
+        FontAwesomeModule,
+
         TranslateModule.forRoot()]
     })
       .compileComponents();

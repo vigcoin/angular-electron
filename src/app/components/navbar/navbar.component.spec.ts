@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -11,6 +12,8 @@ describe('NavbarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NavbarComponent],
       imports: [
+        FontAwesomeModule,
+
         TranslateModule.forRoot()]
     })
       .compileComponents();
