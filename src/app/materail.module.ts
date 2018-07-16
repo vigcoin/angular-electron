@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule } from '@angular/material';
+
+const moduels = [MatButtonModule, MatCheckboxModule, MatToolbarModule];
 
 @NgModule({
-  imports: [MatButtonModule, MatCheckboxModule],
-  exports: [MatButtonModule, MatCheckboxModule],
+  imports: moduels,
+  exports: moduels,
 })
 export class VigMaterialModule { }

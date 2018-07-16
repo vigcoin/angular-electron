@@ -28,6 +28,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import {VigMaterialModule} from './materail.module';
 
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -51,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     AppRoutingModule,
     VigMaterialModule,
+    FontAwesomeModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

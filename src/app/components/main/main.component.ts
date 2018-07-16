@@ -10,6 +10,11 @@ import { read } from 'fs';
 })
 export class MainComponent implements OnInit {
 
+  unit = 'VIG'
+  balance = '0.0';
+  unacknowledged = '0.0';
+  total = '0.0';
+
   constructor() { }
 
   ngOnInit() {
@@ -21,7 +26,6 @@ export class MainComponent implements OnInit {
       const reader = new FileReader();
       const file = fileInput.target.files[0];
       console.log(file.path);
-
       try {
 
         const electron = window.require('electron');
