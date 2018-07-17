@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { read } from 'fs';
 
@@ -15,7 +15,10 @@ export class MainComponent implements OnInit {
   unacknowledged = '0.0';
   total = '0.0';
 
-  constructor() { }
+  file;
+  address = '';
+
+  constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
@@ -26,14 +29,17 @@ export class MainComponent implements OnInit {
       const reader = new FileReader();
       const file = fileInput.target.files[0];
       console.log(file.path);
+      this.file = file;
       try {
 
         const electron = window.require('electron');
 
         const { dialog, ipcRenderer } = electron;
         ipcRenderer.send('open-wallet', file.path, '');
-        ipcRenderer.on('open-wallet', (event, arg) => {
-          console.log(arg); // prints "pong"
+        ipcRenderer.on('open-wallet', (event, address) => {
+          this.address = address;
+          this.ref.detectChanges();
+          console.log(address); // prints "pong"
         });
       } catch (e) {
         console.log(e);
