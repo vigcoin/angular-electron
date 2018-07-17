@@ -31,7 +31,7 @@
     "electron:linux": "npm run build:prod && npx electron-builder build --linux",
     "electron:windows": "npm run build:prod && npx electron-builder build --windows",
     "electron:mac": "npm run build:prod && npx electron-builder build --mac",
-    "test": "ng test",
+    "test": "ng lint && ng test",
     "e2e": "ng e2e"
   },
   "dependencies": {

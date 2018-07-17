@@ -11,11 +11,11 @@ export class NavbarComponent implements OnInit {
 
   @Input('current')
   current;
-  faHome = faHome
-  faWallet = faWallet
-  faBuilding = faBuilding
-  faComments = faComments
-  faEnvelope = faEnvelope
+  faHome = faHome;
+  faWallet = faWallet;
+  faBuilding = faBuilding;
+  faComments = faComments;
+  faEnvelope = faEnvelope;
 
   constructor() {
   }

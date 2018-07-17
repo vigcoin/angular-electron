@@ -10,7 +10,7 @@ import { read } from 'fs';
 })
 export class MainComponent implements OnInit {
 
-  unit = 'VIG'
+  unit = 'VIG';
   balance = '0.0';
   unacknowledged = '0.0';
   total = '0.0';

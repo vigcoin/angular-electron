@@ -11,13 +11,12 @@ describe('MainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainComponent, NavbarComponent],
-      imports: [ 
+      declarations: [MainComponent, NavbarComponent],
+      imports: [
         FontAwesomeModule,
-        
-        TranslateModule.forRoot() ]
+        TranslateModule.forRoot()]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
