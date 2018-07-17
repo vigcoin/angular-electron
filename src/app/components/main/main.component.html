@@ -96,7 +96,7 @@
         </div>
         <div class="form-group" *ngIf="file && file.path">
           <label for="wallet-selector-2" class="text-danger">您位于[
-            <strong>{{file.path}}</strong>]的钱包已经加载成功！</label>
+            <strong>{{file.path}}</strong>]的钱包已经加载成功！点击更换钱包。</label>
           <input type="file" class="form-control-file text-info" placeholer="更换钱包" id="wallet-selector-2" (change)="fileChangeEvent($event)">
         </div>
       </form>
