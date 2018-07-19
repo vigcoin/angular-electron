@@ -8,7 +8,7 @@ var crypto_1 = require("@vigcoin/crypto");
 // })
 function initIPC() {
     ipcMain.on('open-wallet', function (event, filename, password) {
-        console.log("主线程 111");
+        console.log('主线程 111');
         console.log(filename, password); // prints "ping"
         var wallet = new crypto_1.Wallet(filename, password);
         wallet.read().then(function () {

@@ -11,7 +11,7 @@ import { Wallet } from '@vigcoin/crypto';
 
 export function initIPC() {
   ipcMain.on('open-wallet', (event, filename, password) => {
-    console.log("主线程 111");
+    console.log('主线程 111');
     console.log(filename, password); // prints "ping"
 
     const wallet = new Wallet(filename, password);
