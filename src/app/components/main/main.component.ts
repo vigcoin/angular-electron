@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { read } from 'fs';
 
+import { ElectronService } from '../../providers/electron.service';
 
 @Component({
   selector: 'app-main',
@@ -18,9 +19,23 @@ export class MainComponent implements OnInit {
   file;
   address = '';
 
-  constructor(private ref: ChangeDetectorRef) { }
+
+  constructor(private ref: ChangeDetectorRef, public es: ElectronService) {
+
+  }
 
   ngOnInit() {
+    const { ipcRenderer } = this.es;
+    ipcRenderer.on('open-wallet', (event, address) => {
+      this.address = address;
+      this.ref.detectChanges();
+      console.log(address); // prints "pong"
+    });
+
+    ipcRenderer.on('on-error-password', (event) => {
+      console.log('on error password'); // prints "pong"
+    });
+    ipcRenderer.send('get-address');
   }
 
   fileChangeEvent(fileInput: any) {
@@ -31,16 +46,8 @@ export class MainComponent implements OnInit {
       console.log(file.path);
       this.file = file;
       try {
-
-        const electron = window.require('electron');
-
-        const { dialog, ipcRenderer } = electron;
+        const { ipcRenderer } = this.es;
         ipcRenderer.send('open-wallet', file.path, '');
-        ipcRenderer.on('open-wallet', (event, address) => {
-          this.address = address;
-          this.ref.detectChanges();
-          console.log(address); // prints "pong"
-        });
       } catch (e) {
         console.log(e);
       }
