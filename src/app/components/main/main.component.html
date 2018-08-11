@@ -83,21 +83,39 @@
   </div>
   <div class="row">
     <div class="col-4">
-      <div class="alert alert-light" role="alert">
-        <h4 class="alert-heading">钱包地址</h4>
+      <div *ngIf="address" class="alert alert-light" role="alert">
+        <h4 class="alert-heading">当前钱包地址</h4>
         <hr/>
-        <p *ngIf="address" class="word-wrap">{{address}}</p>
-        <p *ngIf="!address" class="alert alert-danger" role="alert">钱包未加载或者钱包错误！</p>
+        <p class="word-wrap">{{address}}</p>
+      </div>
+
+      <div *ngIf="error" class="alert alert-light" role="alert">
+        <p *ngIf="error" class="alert alert-danger" role="alert">钱包文件无效或者密码错误！</p>
       </div>
       <form class="border border-secondary">
-        <div class="form-group" *ngIf="!file || !file.path">
-          <label for="wallet-selector-1" class="text-danger">你尚未添加钱包，请选择钱包</label>
-          <input type="file" class="form-control-file text-info" id="wallet-selector-1" accept=".keys,.wallet" (change)="fileChangeEvent($event)">
+
+        <div class="form-group row">
+          <label for="password" class="col-sm-4">钱包密码</label>
+          <div class="col-sm-8">
+            <input type="password" [(ngModel)]="password" name="password" class="form-control-file text-info" placeholder=" 如果有密码请填写，否则留空" id="password">
+          </div>
         </div>
-        <div class="form-group" *ngIf="file && file.path">
-          <label for="wallet-selector-2" class="text-danger">您位于[
+        <div class="form-group row" *ngIf="!file || !file.path">
+          <label for="wallet-selector-1" class="col-sm-4">请选择钱包</label>
+          <div class="col-sm-8">
+
+            <input type="file" class="form-control-file text-info" id="wallet-selector-1" accept=".keys,.wallet" (change)="fileChangeEvent($event)">
+          </div>
+        </div>
+        <div class="form-group row" *ngIf="file && file.path">
+          <label for="wallet-selector-2" class="col-sm-4 text-success">您位于[
             <strong>{{file.path}}</strong>]的钱包已经加载成功！点击更换钱包。</label>
-          <input type="file" class="form-control-file text-info" placeholer="更换钱包" id="wallet-selector-2" accept=".keys,.wallet" (change)="fileChangeEvent($event)">
+          <div class="col-sm-8">
+            <input type="file" class="form-control-file text-info" placeholer="更换钱包" id="wallet-selector-2" accept=".keys,.wallet" (change)="fileChangeEvent($event)">
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <input type="submit" value="加载钱包" (click)="loadWallet()">
         </div>
       </form>
     </div>

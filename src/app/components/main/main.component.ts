@@ -19,23 +19,35 @@ export class MainComponent implements OnInit {
   file;
   address = '';
 
+  password = '';
+
+  error = false;
+
 
   constructor(private ref: ChangeDetectorRef, public es: ElectronService) {
 
   }
 
   ngOnInit() {
-    const { ipcRenderer } = this.es;
-    ipcRenderer.on('open-wallet', (event, address) => {
-      this.address = address;
-      this.ref.detectChanges();
-      console.log(address); // prints "pong"
-    });
+    if (this.es.isElectron()) {
+      const { ipcRenderer } = this.es;
+      ipcRenderer.on('open-wallet', (event, address) => {
+        this.address = address;
+        this.ref.detectChanges();
+        console.log(address); // prints "pong"
+      });
 
-    ipcRenderer.on('on-error-password', (event) => {
-      console.log('on error password'); // prints "pong"
-    });
-    ipcRenderer.send('get-address');
+      ipcRenderer.on('on-error-password', (event) => {
+        console.log(event);
+
+        this.error = true;
+        // if (this.password && this.file.path) {
+        //   ipcRenderer.send('open-wallet', this.file.path, password);
+        // }
+        console.log('on error password'); // prints "pong"
+      });
+      ipcRenderer.send('get-address');
+    }
   }
 
   fileChangeEvent(fileInput: any) {
@@ -45,12 +57,18 @@ export class MainComponent implements OnInit {
       const file = fileInput.target.files[0];
       console.log(file.path);
       this.file = file;
-      try {
+    }
+  }
+
+  loadWallet() {
+    try {
+      if (this.es.isElectron()) {
+        this.error = false;
         const { ipcRenderer } = this.es;
-        ipcRenderer.send('open-wallet', file.path, '');
-      } catch (e) {
-        console.log(e);
+        ipcRenderer.send('open-wallet', this.file.path, this.password);
       }
+    } catch (e) {
+      console.log(e);
     }
   }
 
