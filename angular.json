@@ -18,7 +18,6 @@
             "polyfills": "src/polyfills.ts",
             "assets": [
               "src/assets",
-              "src/splash.html",
               "src/favicon.ico",
               "src/favicon.png",
               "src/favicon.icns",
@@ -26,7 +25,6 @@
               "src/favicon.512x512.png"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
             "scripts": []

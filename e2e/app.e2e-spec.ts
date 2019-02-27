@@ -10,6 +10,6 @@ describe('angular-electron App', () => {
 
   it('should display message saying App works !', () => {
     page.navigateTo('/');
-    expect(element(by.css('app-home h1')).getText()).toMatch('VIG COIN 钱包，交易客户端!');
+    expect(element(by.css('app-home h1')).getText()).toMatch('App works !');
   });
 });
