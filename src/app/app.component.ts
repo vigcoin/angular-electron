@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(public electronService: ElectronService,
     private translate: TranslateService) {
 
-    translate.setDefaultLang('zh-CN');
+    translate.setDefaultLang('zh');
     console.log('AppConfig', AppConfig);
 
     if (electronService.isElectron()) {

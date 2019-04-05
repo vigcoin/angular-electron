@@ -27,7 +27,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js"
+            ]
           },
           "configurations": {
             "dev": {
@@ -93,7 +95,11 @@
             "polyfills": "src/polyfills-test.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"
+                        ],
             "styles": [
               "src/styles.scss"
             ],

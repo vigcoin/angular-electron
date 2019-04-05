@@ -25,9 +25,6 @@ import { ForumComponent } from './components/forum/forum.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-import {VigMaterialModule} from './materail.module';
-
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // AoT requires an exported function for factories
@@ -52,7 +49,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    VigMaterialModule,
     FontAwesomeModule,
     TranslateModule.forRoot({
       loader: {
