@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { faHome, faWallet, faBuilding, faComments, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import * as $ from "jquery";
-import * as bootstrap from "bootstrap";
+// import * as bootstrap from "bootstrap";
 // import * as bootstrapSelect from "bootstrap-select";
 
 @Component({
