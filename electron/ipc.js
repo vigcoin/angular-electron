@@ -16,7 +16,7 @@ function readWallet(event, walletIn) {
 function initIPC() {
     ipcMain.on('open-wallet', function (event, filename, password) {
         console.log('主线程 111');
-        console.log(filename, password); // prints "ping"
+        console.log(filename, password); // prints 'ping'
         wallet = new crypto_1.Wallet(filename, password);
         readWallet(event, wallet);
     });
@@ -30,7 +30,7 @@ function initIPC() {
         console.log('inside get keys');
         if (wallet) {
             var keys = wallet.getSecretKeys();
-            console.log("keys ");
+            console.log('keys ');
             console.log(keys);
             event.sender.send('get-keys', keys.send, keys.view);
         }
