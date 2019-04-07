@@ -6,8 +6,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('MainComponent', () => {
-  let component: MainComponent;
-  let fixture: ComponentFixture<MainComponent>;
+  // let component: MainComponent;
+  // let fixture: ComponentFixture<MainComponent>;
 
   beforeEach(async(() => {
     // TestBed.configureTestingModule({

@@ -1,20 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterContentChecked } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { faHome, faWallet, faBuilding, faComments, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-import * as $ from "jquery";
-// import * as bootstrap from "bootstrap";
-// import * as bootstrapSelect from "bootstrap-select";
+import * as $ from 'jquery';
+// import * as bootstrap from 'bootstrap';
+// import * as bootstrapSelect from 'bootstrap-select';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterContentChecked {
 
-  @Input('current')
-  current;
+  @Input() current;
 
   supportedLanguages = ['en', 'zh'];
 
@@ -35,15 +34,15 @@ export class NavbarComponent implements OnInit {
   }
 
   ngAfterContentChecked() {
-    let locale = localStorage.getItem("locale");
-    console.log("locale = ", locale);
+    let locale = localStorage.getItem('locale');
+    console.log('locale = ', locale);
     if (!locale) {
       locale = this.getLocaleString();
     }
     this.setLocale(locale);
 
     $('.selectpicker').on('changed.bs.select', (e) => {
-      console.log("change detected!");
+      console.log('change detected!');
       // console.log(e.target.value);
       // this.setLocale(e.target.value);
     });
@@ -65,6 +64,6 @@ export class NavbarComponent implements OnInit {
     this.translate.use(locale);
     $('select').val(locale);
     // $('.selectpicker').selectpicker('refresh');
-    localStorage.setItem("locale", locale);
+    localStorage.setItem('locale', locale);
   }
 }

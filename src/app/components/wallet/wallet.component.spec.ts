@@ -7,8 +7,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ElectronService } from '../../providers/electron.service';
 
 describe('WalletComponent', () => {
-  let component: WalletComponent;
-  let fixture: ComponentFixture<WalletComponent>;
+  // let component: WalletComponent;
+  // let fixture: ComponentFixture<WalletComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

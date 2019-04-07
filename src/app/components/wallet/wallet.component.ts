@@ -20,7 +20,6 @@ export class WalletComponent implements OnInit {
     if (this.es.isElectron()) {
       const { ipcRenderer } = this.es;
       ipcRenderer.on('get-keys', (event, sendKey, viewKey) => {
-        console.log("received keys");
         this.keys.sendKey = sendKey;
         this.keys.viewKey = viewKey;
         console.log(this.keys);
