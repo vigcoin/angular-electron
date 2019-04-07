@@ -1,60 +1,58 @@
-import { Component, OnInit, Input, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { faHome, faWallet, faBuilding, faComments, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
-import * as $ from 'jquery';
-// import * as bootstrap from 'bootstrap';
-// import * as bootstrapSelect from 'bootstrap-select';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit, AfterContentChecked {
+export class NavbarComponent implements OnInit {
 
   @Input() current;
 
-  supportedLanguages = ['en', 'zh'];
+  supportedLanguages = [{ name: 'en', language: 'English', icon: 'us' }, { name: 'zh', language: '中文', icon: 'cn' }];
 
   faHome = faHome;
   faWallet = faWallet;
   faBuilding = faBuilding;
   faComments = faComments;
   faEnvelope = faEnvelope;
-
+  selectedLanguage = 'en';
   constructor(
     private translate: TranslateService
   ) {
   }
 
   ngOnInit() {
-    // $('.selectpicker').selectpicker();
-
-  }
-
-  ngAfterContentChecked() {
     let locale = localStorage.getItem('locale');
     console.log('locale = ', locale);
     if (!locale) {
       locale = this.getLocaleString();
     }
     this.setLocale(locale);
+  }
 
-    $('.selectpicker').on('changed.bs.select', (e) => {
-      console.log('change detected!');
-      // console.log(e.target.value);
-      // this.setLocale(e.target.value);
+  getSupportedLanguage(locale: String) {
+    let found = null;
+    this.supportedLanguages.forEach((item) => {
+      if (item.name === locale) {
+        found = item;
+      }
     });
+    return found;
   }
   getLocaleString() {
     let locale = navigator.language;
-    if (this.supportedLanguages.indexOf(locale) !== -1) {
-      return locale;
+    let found = this.getSupportedLanguage(locale);
+
+    if (found) {
+      return found.name;
     }
     locale = locale.split('-')[0];
-    if (this.supportedLanguages.indexOf(locale) !== -1) {
-      return locale;
+    found = this.getSupportedLanguage(locale);
+    if (found) {
+      return found.name;
     }
     return 'en';
   }
@@ -62,8 +60,12 @@ export class NavbarComponent implements OnInit, AfterContentChecked {
   setLocale(locale: string) {
     this.translate.setDefaultLang(locale);
     this.translate.use(locale);
-    $('select').val(locale);
-    // $('.selectpicker').selectpicker('refresh');
     localStorage.setItem('locale', locale);
+    this.selectedLanguage = locale;
+  }
+
+  onChange(item) {
+    console.log(item);
+    this.setLocale(item.name);
   }
 }

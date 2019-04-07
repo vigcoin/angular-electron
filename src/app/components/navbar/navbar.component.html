@@ -1,13 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand"> {{ 'PAGES.MAIN.TITLE' | translate }}
-  </a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><img class="logo" src="assets/images/logo.png" /> VIG COIN</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse nav-right" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+    </ul>
+    <ul class="navbar-nav">
       <li class="nav-item" [ngClass]="{'active': current === 'main'}">
         <a class="nav-link" routerLink="/main">
           <fa-icon [icon]="faHome"></fa-icon> {{ 'PAGES.MAIN.HOME' | translate }}
@@ -36,10 +37,11 @@
       </li>
 
     </ul>
-    <select class="selectpicker" data-width="auto" data-style="btn-dark">
-      <option value="en" data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
-      <!-- <option value="mx" data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option> -->
-      <option value="zh" data-content='<span class="flag-icon flag-icon-cn"></span> 中文'>中文</option>
-    </select>
+    <ng-select [items]="supportedLanguages" [searchable]=false bindLabel="language" bindValue="name"
+      class="custom btn btn-primary btn-dark" [clearable]=false (change)="onChange($event)" [(ngModel)]="selectedLanguage">
+      <ng-template ng-label-tmp let-item="item" let-label="label">
+        <span class="flag-icon flag-icon-{{item.icon}}"></span> {{item.language}}
+      </ng-template>
+    </ng-select>
   </div>
 </nav>
