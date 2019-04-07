@@ -41,6 +41,7 @@
     "@types/bootstrap-select": "1.11.1",
     "@vigcoin/crypto": "^0.5.1",
     "bootstrap-select": "1.13.9",
+    "neon-vigcoin": "^0.1.0",
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
