@@ -1,17 +1,36 @@
-.container {
+.container-fluid {
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  h1 {
+    text-align: center;
+  }
 
-  background: url(../../../assets/background.jpg) no-repeat center fixed;
-  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-  background-size: cover; /* version standardisée */
+  // background-color: #3f51b5;
+  // background: linear-gradient(141deg,#2e3c8d 10%,#2c49ea 30%,#2c3981 51%);
+
+  // background: url(../../../assets/background.jpg) no-repeat center fixed;
+  // -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  // background-size: cover; /* version standardisée */
 
   .title {
     color: white;
     margin:0;
     padding:50px 20px;
+  }
+
+  .row {
+    .col-6 {
+      height: 100%;
+            // display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        text-align: right;
+      }
+
+    }
   }
 
 }

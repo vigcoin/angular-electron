@@ -1,14 +1,37 @@
-<div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
+<div class="container-fluid">
+  <p>&nbsp;</p>
+  <div class="jumbotron">
+    <h1 class="display-4">{{ 'PAGES.HOME.TITLE' | translate }}</h1>
+  </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-6">
       <p>
-        <a routerLink="/main">
-          {{ 'PAGES.HOME.ENTER' | translate }}
-        </a>{{ 'PAGES.HOME.WALLET' | translate }}
+        <img class="logo" src="assets/images/logo.png" />
       </p>
     </div>
+    <div class="col">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col">
+
+            <!-- <h4>钱包操作</h4> -->
+            <hr />
+            <p><button class="btn btn-outline-danger btn-lg">打开钱包</button></p>
+            <p><button class="btn btn-outline-dark btn-lg">导入纸钱包</button></p>
+            <hr />
+            <p><a class="btn btn-outline-primary btn-lg" href="https://vigcoin.org" target="_blank">官网</a></p>
+            <!-- <h3>交易</h3> -->
+            <hr />
+            <p><a class="btn btn-outline-secondary btn-lg" href="https://www.qbtc.ink/trade?symbol=VIG_CNYT"
+                target="_blank">QBTC购买VIG</a></p>
+            <hr />
+          </div>
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -1,10 +1,18 @@
 {
   "PAGES": {
     "HOME": {
-      "TITLE": "App works !"
+      "TITLE": "Welcome to VIG COIN wallet!",
+      "ENTER": "进入",
+      "WALLET": "钱包"
     },
     "MAIN": {
-      "TITLE": "VIG COIN 钱包"
+      "TITLE": "VIG COIN Wallet",
+      "HOME": "Home",
+      "WALLET": "Wallet",
+      "EXCHANGE": "Exchange",
+      "FORUM": "Forum",
+      "FEEDBACK": "Feedback",
+      "SEARCH": "Search"
     }
   }
 }
