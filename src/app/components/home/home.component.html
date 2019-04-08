@@ -13,17 +13,23 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col">
-
             <!-- <h4>钱包操作</h4> -->
             <hr />
-            <p><button class="btn btn-outline-danger btn-lg">打开钱包</button></p>
-            <p><button class="btn btn-outline-dark btn-lg">导入纸钱包</button></p>
+            <p class="ab">
+              <button class="btn btn-outline-danger btn-lg">选择钱包</button>
+              <input type="file" [(ngModel)]="file" class="form-control file" (change)="onSelectWallet($event.target.files)" accept=".wallet" />
+              &nbsp;
+              <input type="password" [(ngModel)]="password" class="form-control form-control-lg password" placeholder="请输入密码" />
+              &nbsp;
+              <button class="btn btn-danger btn-lg" [attr.disabled]="fileSelected ? null : ''" (click)="onOpenWallet()">打开</button>
+
+            </p>
+            <p class="ab"><button class="btn btn-outline-dark btn-lg">导入纸钱包</button></p>
             <hr />
-            <p><a class="btn btn-outline-primary btn-lg" href="https://vigcoin.org" target="_blank">官网</a></p>
+            <p class="ab"><a class="btn btn-outline-primary btn-lg" href="https://vigcoin.org" (click)="onOpenLink('https://vigcoin.org');" target="_blank">官网</a></p>
             <!-- <h3>交易</h3> -->
             <hr />
-            <p><a class="btn btn-outline-secondary btn-lg" href="https://www.qbtc.ink/trade?symbol=VIG_CNYT"
-                target="_blank">QBTC购买VIG</a></p>
+            <p class="ab"><a class="btn btn-outline-secondary btn-lg" href="https://www.qbtc.ink/trade?symbol=VIG_CNYT" (click)="onOpenLink('https://www.qbtc.ink/trade?symbol=VIG_CNYT');" target="_blank">QBTC购买VIG</a></p>
             <hr />
           </div>
         </div>

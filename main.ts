@@ -6,8 +6,7 @@ import { initIPC } from './electron/ipc';
 
 let win, serve, splash;
 
-// const favicon = 'src/favicon.256x256.png';
-const faviconFile = path.join(__dirname, 'src/favicon.256x256.png');
+const faviconFile = path.join(__dirname, 'src/favicon.png');
 
 const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
