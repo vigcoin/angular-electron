@@ -17,7 +17,7 @@
             <hr />
             <p class="ab">
               <button class="btn btn-outline-danger btn-lg">选择钱包</button>
-              <input type="file" [(ngModel)]="file" class="form-control file" (change)="onSelectWallet($event.target.files)" accept=".wallet" />
+              <input type="file" class="form-control file" (change)="onSelectWallet($event.target.files)" accept=".wallet" />
               &nbsp;
               <input type="password" [(ngModel)]="password" class="form-control form-control-lg password" placeholder="请输入密码" />
               &nbsp;

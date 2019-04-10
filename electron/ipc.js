@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var ipcMain = require('electron').ipcMain;
-var crypto_1 = require("@vigcoin/crypto");
+var neon_1 = require("@vigcoin/neon");
+// import * as neon from 'neon-vigcoin';
 var wallet;
+var prefix = 0x3d;
 function readWallet(event, walletIn) {
     walletIn.read().then(function () {
         var address = walletIn.getAddress();
@@ -14,16 +16,29 @@ function readWallet(event, walletIn) {
     });
 }
 function initIPC() {
+    console.log("initIPC");
     ipcMain.on('open-wallet', function (event, filename, password) {
+        if (password === void 0) { password = ""; }
         console.log('主线程 111');
         console.log(filename, password); // prints 'ping'
-        wallet = new crypto_1.Wallet(filename, password);
-        readWallet(event, wallet);
+        try {
+            wallet = new neon_1.Wallet(filename, password);
+            console.log(" success");
+            event.sender.send('open-wallet', false, wallet);
+        }
+        catch (e) {
+            console.log(e);
+            event.sender.send('open-wallet', true, e.message);
+        }
     });
     ipcMain.on('get-address', function (event) {
         console.log('inside get address');
         if (wallet) {
-            readWallet(event, wallet);
+            var address = wallet.getAddress(prefix);
+            event.sender.send('get-address', false, address);
+        }
+        else {
+            event.sender.send('get-address', true, 'Wallet not found!');
         }
     });
     ipcMain.on('get-keys', function (event) {

@@ -11,10 +11,24 @@ export class HomeComponent implements OnInit {
   fileSelected = false;
   file;
   password;
+  wallet;
 
   constructor(private es: ElectronService) { }
 
   ngOnInit() {
+    this.es.on('open-wallet', (event, error, wallet) => {
+      console.log(" on open wallet, ", event, error, wallet);
+      if (error) {
+        this.es.messageBox("打开钱包失败!");
+      } else {
+        this.openWallet(wallet);
+      }
+
+    });
+  }
+
+  openWallet(wallet) {
+    this.wallet = wallet;
   }
 
   onOpenLink(e) {
@@ -23,16 +37,22 @@ export class HomeComponent implements OnInit {
   }
 
   onOpenWallet() {
+    let file = this.file;
+    console.log("file = " + file);
     console.log("file = " + this.file);
     console.log("password = " + this.password);
+    if (!this.password) {
+      return this.es.openWallet(this.file, '');
+    }
+    return this.es.openWallet(this.file, this.password);
   }
-  
+
   onSelectWallet(files) {
     console.log(files);
     let upload = files[0];
     this.fileSelected = true;
     if (upload.path) {
-      console.log(upload.path);
+      this.file = upload;
     }
   }
 }
