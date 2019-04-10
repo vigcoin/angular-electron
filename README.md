@@ -89,7 +89,7 @@ Note that you can't use Electron or NodeJS native libraries in this case. Please
 
 
 [build-badge]: https://travis-ci.org/vigcoin/electron-wallet.svg?branch=master
-[build]: https://travis-ci.org/vigcoin/electron-wallet.svg?branch=master
+[build]: https://travis-ci.com/vigcoin/electron-wallet.svg?branch=master
 [dependencyci-badge]: https://dependencyci.com/github/vigcoin/electron-wallet/badge
 [dependencyci]: https://dependencyci.com/github/vigcoin/electron-wallet
 [license-badge]: https://img.shields.io/badge/license-Apache2-blue.svg?style=flat
