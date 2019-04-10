@@ -40,14 +40,8 @@
   },
   "dependencies": {
     "@ng-select/ng-select": "^2.16.4",
-    "@types/bootstrap-select": "1.11.1",
-    "@vigcoin/crypto": "^0.5.1",
     "@vigcoin/neon": "^0.1.0",
-    "bootstrap-select": "1.13.9",
-    "flag-icon": "^2.5.0",
-    "flag-icon-css": "^3.3.0",
-    "neon-vigcoin": "^0.1.0",
-    "popper.js": "^1.15.0"
+    "flag-icon-css": "^3.3.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.12.1",
