@@ -19,11 +19,10 @@ export class HomeComponent implements OnInit {
     this.es.on('open-wallet', (event, error, wallet) => {
       console.log(" on open wallet, ", event, error, wallet);
       if (error) {
-        this.es.messageBox("打开钱包失败!");
+        this.es.messageBox("密码错误!");
       } else {
         this.openWallet(wallet);
       }
-
     });
   }
 

@@ -57,7 +57,6 @@ export class ElectronService {
 
   public openWallet(filename, password) {
     if (this.isElectron()) {
-      console.log("service inside openwallet: " + filename.path);
       this.ipcRenderer.send('open-wallet', filename.path, password);
     }
   }
