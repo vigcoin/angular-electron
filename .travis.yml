@@ -1,20 +1,47 @@
-language: node_js. rust
-node_js:
-  - 10
-rust:
-  - nightly
+# http://docs.travis-ci.com/user/workers/container-based-infrastructure/
 sudo: required
 dist: xenial
+# http://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+language: node_js
+node_js:
+  - 8
+  - 10
+
+# https://docs.travis-ci.com/user/languages/javascript-with-nodejs#Node.js-v4-(or-io.js-v3)-compiler-requirements
+env:
+  - CXX=g++-4.8
 addons:
-    chrome: stable
-before_script:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+
+cache:
+  directories:
+    - $HOME/.npm
+    - node_modules
+
+# http://docs.travis-ci.com/user/build-lifecycle/
+before_install:
+  - curl https://sh.rustup.rs -sSf | sh -s -- -y
+  - source "$HOME/.cargo/env"
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
+
 install:
   - npm set progress=false
   - npm install
+  - npm run build
+
+# http://docs.travis-ci.com/user/pull-requests/
 script:
   - ng lint
   - npm run test
   - npm run e2e
   - npm run build
+notifications:
+email: false
+addons:
+    chrome: stable
+
