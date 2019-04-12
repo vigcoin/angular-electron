@@ -16,6 +16,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+  chrome: stable
 
 cache:
   directories:
@@ -32,16 +33,12 @@ before_install:
 install:
   - npm set progress=false
   - npm install
-  - npm run build
 
 # http://docs.travis-ci.com/user/pull-requests/
 script:
-  - ng lint
   - npm run test
-  - npm run e2e
-  - npm run build
+
 notifications:
 email: false
-addons:
-    chrome: stable
+
 
