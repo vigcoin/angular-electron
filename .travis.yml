@@ -16,7 +16,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
-  chrome: stable
+      - chromium-browser
 
 cache:
   directories:
