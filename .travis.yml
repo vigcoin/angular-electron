@@ -27,8 +27,8 @@ cache:
 before_install:
   - curl https://sh.rustup.rs -sSf | sh -s -- -y
   - source "$HOME/.cargo/env"
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  # - export DISPLAY=:99.0
+  # - sh -e /etc/init.d/xvfb start
 
 install:
   - npm set progress=false
